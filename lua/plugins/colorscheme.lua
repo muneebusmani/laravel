@@ -1,9 +1,12 @@
 return {
-  "catppuccin/nvim",
-  name = "catppuccin",
-  priority = 10000000,
-  lazy = false,
-  opts = {
-    colorscheme = "catppuccin_mocha"
-  }
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 10000000,
+    lazy = false,
+    opts = {
+      transparent_background = true,
+    },
+  },
+  { "ellisonleao/gruvbox.nvim" },
 }
