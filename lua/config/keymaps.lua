@@ -9,6 +9,7 @@ map({ "n", "i" }, "<C-f>", "<Esc>dd", opts) -- Del Current Line : CTRL F
 map("n", "<C-d>", ":t .<CR>", opts) -- Copy Line Down (Normal): CTRL D
 map("i", "<C-d>", "<C-o>:t .<CR>", opts) -- Copy Line Down (Insert): ``
 map("i", "<C-n>", "<C-o>$", opts) -- End Of Line : CTRL + N
+map({ "n", "i" }, "<C-b>", "<PageDown>H0", opts) -- End Of Line : CTRL + N
 -- map("n", "<leader>m", ":Mason<CR>", opts) -- End Of Line : SPACE, m
 
 -- map("n", "<C-w>", "<leader>bd", opts)       -- Close Buffer

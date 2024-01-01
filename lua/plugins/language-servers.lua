@@ -20,7 +20,6 @@ return {
         rnix = {},
         tsserver = {},
         svelte = {},
-        r_language_server = {},
         html = {},
       },
     },
