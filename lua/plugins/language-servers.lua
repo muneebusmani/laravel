@@ -4,7 +4,9 @@ return {
     opts = {
       servers = {
         dartls = {},
-        bashls = {},
+        bashls = {
+          filetypes = { "sh", "zsh", "bash", "aliases", "exports" },
+        },
         emmet_language_server = {},
         marksman = {},
         omnisharp = {},
