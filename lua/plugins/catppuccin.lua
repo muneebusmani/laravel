@@ -8,5 +8,4 @@ return {
       transparent_background = true,
     },
   },
-  { "ellisonleao/gruvbox.nvim" },
 }
