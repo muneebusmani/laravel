@@ -18,7 +18,7 @@ return {
 
       --bash
       "bash-language-server",
-      "beautysh",
+      "shfmt",
 
       --dart
       "dcm",
@@ -38,7 +38,7 @@ return {
       "marksman",
       "css-lsp",
       "emmet-language-server",
-      "nil",
+      "rnix-lsp",
       "nixpkgs-fmt",
       "xmlformatter",
       "vim-language-server",
@@ -49,6 +49,7 @@ return {
       "tree-sitter-cli",
       "some-sass-language-server",
       "shellcheck",
+      "powershell-editor-services",
     },
   },
   ---@param opts MasonSettings | {ensure_installed: string[]}

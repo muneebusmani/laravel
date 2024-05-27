@@ -3,13 +3,23 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
-
-map({ "n" }, "<Esc>", ":q<CR>", opts) -- Close : ESC
-map({ "n", "i" }, "<C-f>", "<Esc>dd", opts) -- Del Current Line : CTRL F
-map("n", "<C-d>", ":t .<CR>", opts) -- Copy Line Down (Normal): CTRL D
-map("i", "<C-d>", "<C-o>:t .<CR>", opts) -- Copy Line Down (Insert): ``
-map("i", "<C-n>", "<C-o>$", opts) -- End Of Line : CTRL + N
-map({ "n", "i" }, "<C-b>", "<PageDown>H0", opts) -- End Of Line : CTRL + N
+local merge = function(a, b)
+  local c = {}
+  for k, v in pairs(a) do
+    c[k] = v
+  end
+  for k, v in pairs(b) do
+    c[k] = v
+  end
+  return c
+end
+map("n", "<Esc>", ":q<CR>", merge(opts, { desc = "Close" })) -- Close : ESC
+map({ "n", "i" }, "<C-f>", "<Esc>dd", merge(opts, { desc = "Delete Current Line" })) -- Del Current Line : CTRL F
+map("n", "<C-d>", ":t .<CR>", merge(opts, { desc = "Copy Line Down(Normal)" })) -- Copy Line Down (Normal): CTRL D
+map("i", "<C-d>", "<C-o>:t .<CR>", merge(opts, { desc = "Copy Line Down(Insert)" })) -- Copy Line Down (Insert): ``
+-- map("i", "<C-n>", "<C-o>$", merge(opts, { desc = "" })) -- End Of Line : CTRL + N
+-- map({ "n", "i" }, "<C-b>", "<PageDown>H0", merge(opts, { desc = "" })) -- End Of Line : CTRL + N
+map("n", "<leader>i", "gg=G", merge(opts, { desc = "" }))
 -- map("n", "<leader>m", ":Mason<CR>", opts) -- End Of Line : SPACE, m
 
 -- map("n", "<C-w>", "<leader>bd", opts)       -- Close Buffer
