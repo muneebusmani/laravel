@@ -6,4 +6,3 @@
 ((bracket_start) @start
     (bracket_end) @end
     (#set! role block))
-
