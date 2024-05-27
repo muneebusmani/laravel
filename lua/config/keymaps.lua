@@ -19,7 +19,7 @@ map("n", "<C-d>", ":t .<CR>", merge(opts, { desc = "Copy Line Down(Normal)" })) 
 map("i", "<C-d>", "<C-o>:t .<CR>", merge(opts, { desc = "Copy Line Down(Insert)" })) -- Copy Line Down (Insert): ``
 -- map("i", "<C-n>", "<C-o>$", merge(opts, { desc = "" })) -- End Of Line : CTRL + N
 -- map({ "n", "i" }, "<C-b>", "<PageDown>H0", merge(opts, { desc = "" })) -- End Of Line : CTRL + N
-map("n", "<leader>i", "gg=G", merge(opts, { desc = "" }))
+map("n", "<leader>i", "gg=G", merge(opts, { desc = "Indent Whole file" }))
 -- map("n", "<leader>m", ":Mason<CR>", opts) -- End Of Line : SPACE, m
 
 -- map("n", "<C-w>", "<leader>bd", opts)       -- Close Buffer
