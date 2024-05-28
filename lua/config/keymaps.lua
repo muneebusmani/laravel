@@ -43,6 +43,7 @@ map({ "n", "i" }, "<C-b>", "<PageDown>H0", merge(opts, { desc = "actual Page dow
 map("n", "<leader>ll", ":Lazy<CR>", merge(opts, { desc = "Open Lazy.nvim" })) -- End Of Line : CTRL + N
 map("n", "<leader>le", ":LazyExtras<CR>", merge(opts, { desc = "Open LazyVim Extras" })) -- End Of Line : CTRL + N
 map("n", "<leader>fN", ":Neotree toggle=true position=current<CR>", merge(opts, { desc = "Neotree Netrw Style" })) -- End Of Line : CTRL + N
+map("n", "<leader>sf", ":%s/original/updated" , {desc = "Substite all in Current file"})
 -- map("n", "<leader>m", ":Mason<CR>", opts) -- End Of Line : SPACE, m
 
 -- map("n", "<C-w>", "<leader>bd", opts)       -- Close Buffer
