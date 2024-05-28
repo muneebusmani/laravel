@@ -7,16 +7,19 @@ return {
     linters_by_ft = {
       fish = { "fish" },
       dockerfile = { "hadolint" },
+      -- markdown = { "sonarlint-language-server"},
+      lua = {"luacheck"},
+      -- ['js','jsx', 'ts', 'tsx'] = { 'eslint_d'},
       -- php = { "psalm" },
-      -- js = { "eslint" },
-      -- jsx = { "eslint" },
-      -- ts = { "eslint" },
-      -- tsx = { "eslint_d" },
+      js = { "eslint_d" },
+      ts = { "eslint_d" },
+      jsx = { "eslint_d" },
+      tsx = { "eslint_d" },
       -- python = { "pylint" },
       -- Use the "*" filetype to run linters on all filetypes.
-      -- ['*'] = { 'global linter' },
+      -- ['*'] = { 'sonarlint-language-server' },
       -- Use the "_" filetype to run linters on filetypes that don't have other linters configured.
-      -- ['_'] = { 'fallback linter' },
+      -- ['_'] = { 'sonarlint-language-server' },
     },
     -- LazyVim extension to easily override linter options
     -- or add custom linters.

@@ -30,7 +30,10 @@ return {
       "shellcheck",
       "shfmt",
       "stylua",
+      "luacheck",
       "tailwindcss-language-server",
+      "sonarlint-language-server",
+      "alex",
     },
   },
 }

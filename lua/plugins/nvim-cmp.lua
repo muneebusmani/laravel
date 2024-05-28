@@ -1,3 +1,4 @@
+if true then return {} end
 return {
   "nvim-cmp",
   opts = function(_, opts)
