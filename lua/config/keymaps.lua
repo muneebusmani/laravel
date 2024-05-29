@@ -33,22 +33,16 @@ local merge = function(a, b)
   end
   return c
 end
-map("n", "<Esc>", ":q<CR>", merge(opts, { desc = "Close" })) -- Close : ESC
-map({ "n", "i" }, "<C-f>", "<Esc>dd", merge(opts, { desc = "Delete Current Line" })) -- Del Current Line : CTRL F
-map("n", "<C-d>", ":t .<CR>", merge(opts, { desc = "Copy Line Down(Normal)" })) -- Copy Line Down (Normal): CTRL D
-map("i", "<C-d>", "<C-o>:t .<CR>", merge(opts, { desc = "Copy Line Down(Insert)" })) -- Copy Line Down (Insert): ``
-map("n", "<leader>i", "gg=G", merge(opts, { desc = "Indent Whole file" }))
--- map("i", "<C-n>", "<C-o>$", merge(opts, { desc = "" })) -- End Of Line : CTRL + N
-map({ "n", "i" }, "<C-b>", "<PageDown>H0", merge(opts, { desc = "actual Page down" })) -- End Of Line : CTRL + N
-map("n", "<leader>ll", ":Lazy<CR>", merge(opts, { desc = "Open Lazy.nvim" })) -- End Of Line : CTRL + N
-map("n", "<leader>le", ":LazyExtras<CR>", merge(opts, { desc = "Open LazyVim Extras" })) -- End Of Line : CTRL + N
-map("n", "<leader>fN", ":Neotree toggle=true position=current<CR>", merge(opts, { desc = "Neotree Netrw Style" })) -- End Of Line : CTRL + N
-map("n", "<leader>sf", ":%s/original/updated" , {desc = "Substite all in Current file"})
--- map("n", "<leader>m", ":Mason<CR>", opts) -- End Of Line : SPACE, m
 
--- map("n", "<C-w>", "<leader>bd", opts)       -- Close Buffer
--- map("v", "<C-c>", '"+y', opts)
--- Bonus Shortcuts :
--- CTRL + n + Enter : Jump to next Line
--- Shift + V : open line select mode
--- CTRP + C Copy
+map("n", "<Esc>", ":q<CR>", merge(opts, { desc = "Close" }))
+map({ "n", "i" }, "<C-f>", "<Esc>\"_dd", merge(opts, { desc = "Delete Current Line" }))
+map({"n","i"}, "<C-d>", "<Esc>:t .<CR>", merge(opts, { desc = "Copy Line Down" }))
+map("n", "<leader>i", "gg=G", merge(opts, { desc = "Indent Whole file" }))
+map({ "n", "i" }, "<C-b>", "<PageDown>H0", merge(opts, { desc = "actual Page down" }))
+map("n", "<leader>ll", ":Lazy<CR>", merge(opts, { desc = "Open Lazy.nvim" }))
+map("n", "<leader>le", ":LazyExtras<CR>", merge(opts, { desc = "Open LazyVim Extras" }))
+map("n", "<leader>fN", ":Neotree toggle=true position=current<CR>", merge(opts, { desc = "Neotree Netrw Style" }))
+map("n", "<leader>sf", ":%s/original/updated" , {desc = "Substite all in Current file"})
+map("x", "p", "P", {silent= true, desc = "fix the stupid behaviour of neovim"})
+map("x", "d", "\"_d", {silent= true, desc = "fix the stupid behaviour of neovim"})
+map({"n","x"}, "dd", "\"_dd", {silent= true, desc = "fix the stupid behaviour of neovim"})
