@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   pattern = "*.blade.php",
   callback = function(args)
     vim.schedule(function()
-      -- Check if the attached client is 'intelephense'
+      -- Check if the attached client is 'phpactor'
       for _, client in ipairs(vim.lsp.get_active_clients()) do
         if client.name == "phpactor" and client.attached_buffers[args.buf] then
           vim.api.nvim_buf_set_option(args.buf, "filetype", "blade")

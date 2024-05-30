@@ -10,9 +10,9 @@ return {
         async = true, -- not recommended to change
         quiet = true, -- not recommended to change
       },
-      ---- @type table<string, conform.FormatterUnit[]>
+      ---@type table<string, conform.FormatterUnit[]>
       formatters_by_ft = {
-        lua = { "stylua" },
+        lua = { "luaformatter" },
         -- fish = { "fish_indent" },
         sh = { "shfmt" },
         markdown = { "mdformat" },
