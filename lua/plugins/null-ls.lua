@@ -1,3 +1,4 @@
+-- if true then return {} end
 return {
   {
     "nvimtools/none-ls.nvim",
@@ -7,18 +8,18 @@ return {
         sources = {
           nls.builtins.diagnostics.phpstan.with({
             extra_args = {
-              "--memory-limit=2G",
+              "--memory-limit=4G",
             },
           }),
         },
       }
     end,
   },
-  -- {
-  --   -- add longer timeout, since formatting blade files gets a little slow
-  --   "neovim/nvim-lspconfig",
-  --   opts = {
-  --     format = { timeout_ms = 2000 },
-  --   },
-  -- },
+  {
+    -- add longer timeout, since formatting blade files gets a little slow
+    "neovim/nvim-lspconfig",
+    opts = {
+      format = { timeout_ms = 2000 },
+    },
+  },
 }

@@ -7,12 +7,8 @@ return {
     linters_by_ft = {
       fish = { "fish" },
       dockerfile = { "hadolint" },
-      -- markdown = { "sonarlint-language-server"},
-      lua = {"luacheck"},
-      php = {"phpstan"},
-      -- lua = {"selene"},
-      -- ['js','jsx', 'ts', 'tsx'] = { 'eslint_d'},
-      -- php = { "psalm" },
+      lua = { "selene" },
+      -- php = { "phpstan" },
       js = { "eslint_d" },
       ts = { "eslint_d" },
       jsx = { "eslint_d" },
@@ -25,23 +21,23 @@ return {
     },
     -- LazyVim extension to easily override linter options
     -- or add custom linters.
-    -- @type table<string,table>
+    ---@type table<string,table>
     -- linters = {
-      -- psalm = {
-      -- command = require("conform.util").find_executable({
-      --   vim.fn.stdpath("data") .. "/mason/bin/psalm",
-      --   "vendor/bin/psalm",
-      -- }, "psalm"),
-      --
-      -- }
-      -- -- Example of using selene only when a selene.toml file is present
-      -- selene = {
-      --   -- `condition` is another LazyVim extension that allows you to
-      --   -- dynamically enable/disable linters based on the context.
-      --   condition = function(ctx)
-      --     return vim.fs.find({ "selene.toml" }, { path = ctx.filename, upward = true })[1]
-      --   end,
-      -- },
+    --   phpstan = {
+    --   command = require("conform.util").find_executable({
+    --     vim.fn.stdpath("data") .. "vendor/bin/phpstan",
+    --   }, "psalm"),
+    --
+    --    }
+    -- }
+    -- -- Example of using selene only when a selene.toml file is present
+    -- selene = {
+    --   -- `condition` is another LazyVim extension that allows you to
+    --   -- dynamically enable/disable linters based on the context.
+    --   condition = function(ctx)
+    --     return vim.fs.find({ "selene.toml" }, { path = ctx.filename, upward = true })[1]
+    --   end,
+    -- },
     -- },
   },
 }

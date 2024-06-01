@@ -6,7 +6,7 @@ return {
     priority = 10000000,
     lazy = false,
     opts = {
-      transparent_background = false,
+      transparent_background = true,
     },
   },
   {

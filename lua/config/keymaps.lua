@@ -2,47 +2,49 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-local Util = require("lazyvim.util")
-local function map(mode, lhs, rhs, opts)
-  local keys = require("lazy.core.handler").handlers.keys
-  ---@cast keys LazyKeysHandler
-  -- do not create the keymap if a lazy keys handler exists
-  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-    opts = opts or {}
-    opts.silent = opts.silent ~= false
-    vim.keymap.set(mode, lhs, rhs, opts)
-  end
-end
-
-map("n", "<leader>gd", function()
-  Util.float_term(
-    { "lazydocker", "-f", Util.get_root() .. "docker-compose.yml" },
-    { cwd = Util.get_root(), esc_esc = false }
-  )
-end, { desc = "LazyDocker (root dir)" })
-
+-- local map = vim.keymap.set
 local map = vim.keymap.set
-local opts = { noremap = true, silent = true }
-local merge = function(a, b)
-  local c = {}
-  for k, v in pairs(a) do
-    c[k] = v
-  end
-  for k, v in pairs(b) do
-    c[k] = v
-  end
-  return c
+---comment
+---@param description string
+---@return table
+local opts = function(description)
+  return { noremap = true, silent = true, desc = description }
 end
 
-map("n", "<Esc>", ":q<CR>", merge(opts, { desc = "Close" }))
-map({ "n", "i" }, "<C-f>", "<Esc>\"_dd", merge(opts, { desc = "Delete Current Line" }))
-map({"n","i"}, "<C-d>", "<Esc>:t .<CR>", merge(opts, { desc = "Copy Line Down" }))
-map("n", "<leader>i", "gg=G", merge(opts, { desc = "Indent Whole file" }))
-map({ "n", "i" }, "<C-b>", "<PageDown>H0", merge(opts, { desc = "actual Page down" }))
-map("n", "<leader>ll", ":Lazy<CR>", merge(opts, { desc = "Open Lazy.nvim" }))
-map("n", "<leader>le", ":LazyExtras<CR>", merge(opts, { desc = "Open LazyVim Extras" }))
-map("n", "<leader>fN", ":Neotree toggle=true position=current<CR>", merge(opts, { desc = "Neotree Netrw Style" }))
-map("n", "<leader>sf", ":%s/original/updated" , {desc = "Substite all in Current file"})
-map("x", "p", "P", {silent= true, desc = "fix the stupid behaviour of neovim"})
-map("x", "d", "\"_d", {silent= true, desc = "fix the stupid behaviour of neovim"})
-map({"n","x"}, "dd", "\"_dd", {silent= true, desc = "fix the stupid behaviour of neovim"})
+map("n", "<leader>j", "j^", opts("goto start of next line"))
+map("n", "<leader>J", "j$", opts("goto end of next line"))
+map("n", "<leader>k", "k^", opts("goto start of previous line"))
+map("n", "<leader>K", "k$", opts("goto end of previous line"))
+map("n", "<Esc>", ":q<CR>", opts("Close"))
+map({ "n", "i" }, "<A-f>", '<Esc>"_dd', opts("Delete Current Line"))
+map({ "n", "i" }, "<A-d>", "<Esc>:t .<CR>", opts("Copy Line Down"))
+map("n", "<leader>i", "gg=G", opts("Indent Whole file"))
+map("n", "<A-a>", 'ggvG"+y', opts("Select All and copy"))
+map({ "n", "i" }, "<C-b>", "<PageDown>H0", opts("actual Page down"))
+map("n", "<leader>ll", ":Lazy<CR>", opts("Open Lazy.nvim"))
+map("n", "<leader>le", ":LazyExtras<CR>", opts("Open LazyVim Extras"))
+map("n", "<leader>fN", ":Neotree toggle=true position=current<CR>", opts("Neotree Netrw Style"))
+map("n", "<leader>sf", ":%s/original/updated", opts("Substite all in Current file"))
+map("x", "p", "P", opts("fix the stupid behaviour of neovim"))
+map("x", "d", '"_d', opts("fix the stupid behaviour of neovim"))
+map({ "n", "x" }, "dd", '"_dd', opts("fix the stupid behaviour of neovim"))
+map("n", "<leader>de", "DBUI", opts("Database Explorer"))
+map("n", "<leader>da", "DBUIAddConnection", opts("Add Database Connection"))
+map("n", "<leader>ut", "<cmd>lua require('undotree').toggle()<cr>", opts("Toggle UndoTree"))
+-- local hop = require('hop')
+-- local directions = require('hop.hint').HintDirection
+--
+-- vim.keymap.set('', 'f', function()
+--   hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
+-- end, {remap=true})
+-- vim.keymap.set('', 'F', function()
+--   hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+-- end, {remap=true})
+-- vim.keymap.set('', 't', function()
+--   hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
+-- end, {remap=true})
+-- vim.keymap.set('', 'T', function()
+--   hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
+-- end, {remap=true})
+require("config.lazydocker")
+require("config.lazygit")

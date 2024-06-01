@@ -1,6 +1,6 @@
 
--- stylua: ignore
 if true then return {} end
+-- @stylua: ignore
 return {
   "adalessa/laravel.nvim",
   dependencies = {

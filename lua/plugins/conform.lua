@@ -6,17 +6,17 @@ return {
     local opts = {
       -- LazyVim will use these options when formatting with the conform.nvim formatter
       format = {
-        timeout_ms = 3000,
-        async = true, -- not recommended to change
-        quiet = true, -- not recommended to change
+        timeout_ms = 1000,
+        async = false, -- not recommended to change
+        quiet = false, -- not recommended to change
       },
       ---@type table<string, conform.FormatterUnit[]>
       formatters_by_ft = {
-        lua = { "luaformatter" },
+        lua = { "stylua" },
         -- fish = { "fish_indent" },
         sh = { "shfmt" },
         markdown = { "mdformat" },
-        php = { "pint" },
+        php = { "pretty-php" },
         blade = { "blade-formatter", "rustywind" },
         -- python = { "black" },
         javascript = { "prettierd" },

@@ -6,6 +6,7 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath })
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
+
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
@@ -24,14 +25,14 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.lang.markdown" },
     -- { import = "lazyvim.plugins.extras.lang.tailwind" },
     -- { import = "lazyvim.plugins.extras.lang.yaml" },
-    { import = "lazyvim.plugins.extras.ui.alpha" },
+    -- { import = "lazyvim.plugins.extras.ui.alpha" },
     { import = "lazyvim.plugins.extras.ui.edgy" },
-    { import = "lazyvim.plugins.extras.ui.mini-animate" },
+    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     { import = "lazyvim.plugins.extras.lsp.none-ls" },
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
-    -- { import = "lazyvim.plugins.extras.editor.outline" },
+    { import = "lazyvim.plugins.extras.editor.outline" },
     -- { import = "lazyvim.plugins.extras.editor.aerial" },
-    { import = "lazyvim.plugins.extras.coding.tabnine" },
+    -- { import = "lazyvim.plugins.extras.coding.tabnine" },
     -- { import = "lazyvim.plugins.extras.editor.refactoring" },
     -- { import = "lazyvim.plugins.extras.coding.luasnip" },
 
@@ -61,6 +62,7 @@ require("lazy").setup({
         -- "tohtml",
         -- "tutor",
         -- "zipPlugin",
+        --
         "2html_plugin",
         "tohtml",
         "getscript",
@@ -93,3 +95,4 @@ require("lazy").setup({
   },
 })
 require("config.lsp")
+require("config.undotree")
