@@ -1,11 +1,32 @@
-if true then return {} end
-return {
-  "nvim-cmp",
-  opts = function(_, opts)
-    table.insert(opts.sources, 1, {
-      name = "tabnine",
-      group_index = 2,
-      priority = 100,
-    })
-  end,
-}
+if true then
+  return {}
+end
+-- return {
+--   "nvim-cmp",
+--   opts = function(_, opts)
+--     table.insert(opts.sources, 1, {
+--       name = "tabnine",
+--       group_index = 2,
+--       priority = 100,
+--     })
+--   end,
+-- }
+-- return {
+--   {
+--     "hrsh7th/nvim-cmp",
+--     opts = function(_, opts)
+--       local cmp = require("cmp")
+--       opts.sources = cmp.config.sources({
+--         { name = "nvim_lsp" },
+--         { name = "luasnip" },
+--         { name = "path" },
+--         { name = "buffer", keyword_length = 5 },
+--       })
+--       table.insert(opts.sources, 1, {
+--         name = "tabnine",
+--         group_index = 2,
+--         priority = 100,
+--       })
+--     end,
+--   },
+-- }

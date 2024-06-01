@@ -3,8 +3,13 @@
 -- Add any additional keymaps here
 
 -- local map = vim.keymap.set
-local map = vim.keymap.set
----comment
+---@param mode string Vim Mode for the mapping
+---@param lhs string Keybinding for the mapping
+---@param rhs string Target command(lua,vimscript)
+---@param opts table options
+local map = function(mode, lhs, rhs, opts)
+  vim.keymap.set(mode, lhs, rhs, opts)
+end
 ---@param description string
 ---@return table
 local opts = function(description)
@@ -28,9 +33,11 @@ map("n", "<leader>sf", ":%s/original/updated", opts("Substite all in Current fil
 map("x", "p", "P", opts("fix the stupid behaviour of neovim"))
 map("x", "d", '"_d', opts("fix the stupid behaviour of neovim"))
 map({ "n", "x" }, "dd", '"_dd', opts("fix the stupid behaviour of neovim"))
-map("n", "<leader>de", "DBUI", opts("Database Explorer"))
-map("n", "<leader>da", "DBUIAddConnection", opts("Add Database Connection"))
 map("n", "<leader>ut", "<cmd>lua require('undotree').toggle()<cr>", opts("Toggle UndoTree"))
+-- map("n", "<leader>gdf", ":Neogen file", opts("Generate Doc for file"))
+-- map("n", "<leader>gdc", ":Neogen class", opts("Generate Doc for class"))
+-- map("n", "<leader>gdt", ":Neogen type", opts("Generate Doc for type"))
+-- map("n", "<leader>gdn", ":Neogen function", opts("Generate Doc for function"))
 -- local hop = require('hop')
 -- local directions = require('hop.hint').HintDirection
 --
@@ -46,5 +53,28 @@ map("n", "<leader>ut", "<cmd>lua require('undotree').toggle()<cr>", opts("Toggle
 -- vim.keymap.set('', 'T', function()
 --   hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
 -- end, {remap=true})
+
+---@param keymaps string
+---@param description string
+---@return table
+local wkopts = function(keymaps, description)
+  return { keymaps, description, noremap = true, silent = true }
+end
+local wk = require("which-key")
+wk.register({
+  gd = {
+    name = "Generate Docs",
+    f = wkopts("<cmd>Neogen file<CR>", "Generate Doc for file"),
+    c = wkopts("<cmd>Neogen class<CR>", "Generate Doc for class"),
+    t = wkopts("<cmd>Neogen type<CR>", "Generate Doc for type"),
+    n = wkopts("<cmd>Neogen func<CR>", "Generate Doc for function"),
+  },
+  d = {
+    name = "Database UI",
+    e = wkopts("<cmd>DBUI<CR>", "Database Explorer"),
+    a = wkopts("<cmd>DBUIAddConnection<CR>", "Add Database Connection"),
+  },
+}, { prefix = "<leader>" })
+
 require("config.lazydocker")
 require("config.lazygit")
