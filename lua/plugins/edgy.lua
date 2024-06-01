@@ -9,15 +9,32 @@ return {
     vim.opt.splitkeep = "screen"
   end,
   opts = {
-    bottom = require("plugins.edgy.bottom"),
-    left = require("plugins.edgy.left"),
-    right = require("plugins.edgy.right"),
+    right = {
+      {
+        ft = "undotree",
+        pinned = true,
+        open = "lua require('undotree').toggle()",
+      },
+      {
+        ft = "dbui",
+        pinned = true,
+        open = "DBUI",
+      },
+      {
+        ft = "Outline",
+        pinned = true,
+        open = "SymbolsOutlineOpen",
+      },
+    },
+    options = {
+      right = { size = 40 },
+    },
     animate = {
       enabled = true,
       fps = 60, -- frames per second
       cps = 60, -- cells per second
       on_begin = function()
-        vim.g.minianimate_disable = true
+        vim.g.minianimate_disable = false
       end,
       on_end = function()
         vim.g.minianimate_disable = false

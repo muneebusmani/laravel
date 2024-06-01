@@ -34,25 +34,6 @@ map("x", "p", "P", opts("fix the stupid behaviour of neovim"))
 map("x", "d", '"_d', opts("fix the stupid behaviour of neovim"))
 map({ "n", "x" }, "dd", '"_dd', opts("fix the stupid behaviour of neovim"))
 map("n", "<leader>ut", "<cmd>lua require('undotree').toggle()<cr>", opts("Toggle UndoTree"))
--- map("n", "<leader>gdf", ":Neogen file", opts("Generate Doc for file"))
--- map("n", "<leader>gdc", ":Neogen class", opts("Generate Doc for class"))
--- map("n", "<leader>gdt", ":Neogen type", opts("Generate Doc for type"))
--- map("n", "<leader>gdn", ":Neogen function", opts("Generate Doc for function"))
--- local hop = require('hop')
--- local directions = require('hop.hint').HintDirection
---
--- vim.keymap.set('', 'f', function()
---   hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
--- end, {remap=true})
--- vim.keymap.set('', 'F', function()
---   hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
--- end, {remap=true})
--- vim.keymap.set('', 't', function()
---   hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
--- end, {remap=true})
--- vim.keymap.set('', 'T', function()
---   hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
--- end, {remap=true})
 
 ---@param keymaps string
 ---@param description string
@@ -75,6 +56,6 @@ wk.register({
     a = wkopts("<cmd>DBUIAddConnection<CR>", "Add Database Connection"),
   },
 }, { prefix = "<leader>" })
+require("lua.util.lazydocker")
+require("lua.util.lazygit")
 
-require("config.lazydocker")
-require("config.lazygit")

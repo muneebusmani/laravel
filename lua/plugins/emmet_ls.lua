@@ -1,4 +1,6 @@
-if true then return {} end
+if true then
+  return {}
+end
 return {
   {
     "neovim/nvim-lspconfig",
@@ -7,19 +9,13 @@ return {
       servers = {
         emmet_ls = {
           filetypes = {
-            "astro",
             "blade",
             "css",
-            "eruby",
             "html",
-            "htmldjango",
             "javascriptreact",
-            "less",
-            "pug",
+            "typescriptreact",
             "sass",
             "scss",
-            "svelte",
-            "typescriptreact",
             "vue",
           },
         },

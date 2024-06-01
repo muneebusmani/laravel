@@ -28,14 +28,8 @@ return {
             },
           },
         },
-        bashls = {
-          filetypes = { "bash", "zsh", "sh"},
-          cmd_env = {
-            GLOB_PATTERN = "*@(.sh|.inc|.bash|.bash_profile|.bash_login|.bash_aliases|.profile|.command|.zsh|.zshrc|.zshenv|.zprofile|.zlogin|.zlogout)"
-          }
-        },
         cssls = {
-          filetypes = { "css", "scss", "less" , "sass"}
+          filetypes = { "css", "scss", "less", "sass" },
         },
       },
     },
