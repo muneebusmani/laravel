@@ -56,6 +56,6 @@ wk.register({
     a = wkopts("<cmd>DBUIAddConnection<CR>", "Add Database Connection"),
   },
 }, { prefix = "<leader>" })
-require("lua.util.lazydocker")
-require("lua.util.lazygit")
 
+require("util.lazydocker")
+require("util.lazygit")
