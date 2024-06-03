@@ -35,27 +35,6 @@ map("x", "d", '"_d', opts("fix the stupid behaviour of neovim"))
 map({ "n", "x" }, "dd", '"_dd', opts("fix the stupid behaviour of neovim"))
 map("n", "<leader>ut", "<cmd>lua require('undotree').toggle()<cr>", opts("Toggle UndoTree"))
 
----@param keymaps string
----@param description string
----@return table
-local wkopts = function(keymaps, description)
-  return { keymaps, description, noremap = true, silent = true }
-end
-local wk = require("which-key")
-wk.register({
-  gd = {
-    name = "Generate Docs",
-    f = wkopts("<cmd>Neogen file<CR>", "Generate Doc for file"),
-    c = wkopts("<cmd>Neogen class<CR>", "Generate Doc for class"),
-    t = wkopts("<cmd>Neogen type<CR>", "Generate Doc for type"),
-    n = wkopts("<cmd>Neogen func<CR>", "Generate Doc for function"),
-  },
-  d = {
-    name = "Database UI",
-    e = wkopts("<cmd>DBUI<CR>", "Database Explorer"),
-    a = wkopts("<cmd>DBUIAddConnection<CR>", "Add Database Connection"),
-  },
-}, { prefix = "<leader>" })
 
 require("util.lazydocker")
 require("util.lazygit")

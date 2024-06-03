@@ -15,6 +15,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lsp.none-ls" },
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
     { import = "lazyvim.plugins.extras.editor.outline" },
+    { import = "lazyvim.plugins.extras.coding.luasnip" },
+    { import = "lazyvim.plugins.extras.coding.mini-surround" },
     -- import any extras modules here
     -- { import = "lazyvim.plugins.extras.dap.core" },
     -- { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
@@ -39,10 +41,10 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.util.gitui" },
     -- { import = "lazyvim.plugins.extras.util.dot" },
     -- { import = "lazyvim.plugins.extras.coding.tabnine" },
-    -- { import = "lazyvim.plugins.extras.coding.luasnip" },
 
     -- import/override with your plugins
     { import = "plugins" },
+    { import = "plugins.generic" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
