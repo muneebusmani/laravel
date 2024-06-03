@@ -4,32 +4,28 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
-        -- phpactor = {
-        --   filetypes = { "php", "blade" },
-        --   settings = {
-        --     phpactor = {
-        --       filetypes = { "php", "blade" },
-        --       files = {
-        --         associations = { "*.php", "*.blade.php" }, -- Associating .blade.php files as well
-        --         maxSize = 5000000,
-        --       },
-        --     },
-        --   },
-        -- },
-        intelephense = {
-          filetypes = { "php", "blade" },
+        dartls = {
+          cmd = { "dart", "language-server", "--protocol=lsp" },
+          filetypes = { "dart" },
+          root_dir = function(fname)
+            return require("lspconfig").util.root_pattern("pubspec.yaml")(fname) or vim.loop.os_homedir()
+          end,
+          init_options = {
+            closingLabels = true,
+            flutterOutline = true,
+            onlyAnalyzeProjectsWithOpenFiles = true,
+            outline = true,
+            suggestFromUnimportedLibraries = true,
+          },
           settings = {
-            intelephense = {
-              filetypes = { "php", "blade" },
-              files = {
-                associations = { "*.php", "*.blade.php" }, -- Associating .blade.php files as well
-                maxSize = 5000000,
+            dart = {
+              completeFunctionCalls = true,
+              showTodos = true,
+              analysisExcludedFolders = {
+                vim.loop.os_homedir() .. "/.pub-cache",
               },
             },
           },
-        },
-        cssls = {
-          filetypes = { "css", "scss", "less", "sass" },
         },
       },
     },
