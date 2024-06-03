@@ -12,30 +12,22 @@ return {
       ---@type table<string, conform.FormatterUnit[]>
       formatters_by_ft = {
         markdown = { "mdformat" },
-        php = { "pint" },
-        blade = { "blade-formatter", "rustywind" },
-        javascript = { "prettierd" },
-        typescript = { "prettierd" },
-        javascriptreact = { "prettierd" },
-        typescriptreact = { "prettierd" },
+        dart = { "dartfmt" },
       },
       ---@type table<string, conform.FormatterConfigOverride|fun(bufnr: integer): nil|conform.FormatterConfigOverride>
       formatters = {
-      injected = { options = { ignore_errors = true } },
-      pint = {
-        meta = {
-          url = "https://github.com/laravel/pint",
-          description = "Laravel Pint is an opinionated PHP code style fixer for minimalists. Pint is built on top of PHP-CS-Fixer and makes it simple to ensure that your code style stays clean and consistent.",
-        },
-      command = util.find_executable({
-        vim.fn.stdpath("data") .. "/mason/bin/pint",
-        "vendor/bin/pint",
-      }, "pint"),
-          args = { "$FILENAME" },
+        injected = { options = { ignore_errors = true } },
+        dartfmt = {
+          meta = {
+            url = "https://dart.dev",
+            description = "A Code formatter for dart",
+          },
+          command = "dart",
+          args = { "format", "$FILENAME" },
           stdin = false,
         },
       },
     }
-  return opts
+    return opts
   end,
 }
