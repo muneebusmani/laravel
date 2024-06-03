@@ -1,3 +1,4 @@
+-- Dart Instructions:
 -- uncomment these two if you dont need flutter plugin
 -- require'lspconfig'.dartls.setup(); 
 -- if true then return {} end
@@ -17,3 +18,7 @@ return {
     },
     config = true,
 }
+-- FLutter Instructions:
+-- type :Flutter and press TAB to get a list of available commands for this plugin,
+-- make sure you are in a flutter project directory, or else this plugin wont get loaded,
+-- this plugin will get load when you open lib/main.dart for the first time
