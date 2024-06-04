@@ -1,5 +1,6 @@
 return {
   "williamboman/mason.nvim",
+  event = "LazyFile",
   opts = {
     ensure_installed = {
       "blade-formatter",
@@ -11,9 +12,12 @@ return {
       "html-lsp",
       "intelephense",
       "phpstan",
-      "pint",
+      -- "pint",
+      "pretty-php",
       "psalm",
-      -- "pretty-php",
+      "sqlls",
+      "sqlfmt",
+      "sqlfluff",
       "prettierd",
     },
   },

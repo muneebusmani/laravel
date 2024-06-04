@@ -1,4 +1,3 @@
--- add more treesitter parsers
 return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
@@ -12,10 +11,12 @@ return {
         end,
       },
     },
-    "nvim-treesitter/nvim-treesitter-textobjects",
+    {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
   },
   opts = {
-    auto_install = true,
+    -- auto_install = true,
     highlight = {
       enable = true,
     },
@@ -38,7 +39,6 @@ return {
       },
       filetype = "blade",
     }
-
     require("nvim-treesitter.configs").setup(opts)
   end,
 }

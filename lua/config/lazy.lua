@@ -15,11 +15,12 @@ require("lazy").setup({
     -- import any extras modules here
 
     -- import/override with your plugins
+    { import = "plugins.generic.extras" },
     { import = "plugins" },
     { import = "plugins.generic" },
   },
   defaults = {
-    lazy = false,
+    lazy = true,
     version = false,
   },
   install = { colorscheme = { "catppuccin" } },
