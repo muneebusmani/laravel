@@ -13,6 +13,6 @@ return {
     { "<leader>lm", ":Laravel related<cr>" },
   },
   -- event = { "VeryLazy" },
-  lazy = true,
+  -- lazy = true,
   config = true,
 }

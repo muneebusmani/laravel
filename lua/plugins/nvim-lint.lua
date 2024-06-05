@@ -9,8 +9,8 @@ return {
       dockerfile = { "hadolint" },
       -- markdown = { "sonarlint-language-server"},
       lua = {"luacheck"},
-      php = {"phpstan"},
-      dart = {'dartanalyzer'},
+      -- php = {"phpstan"},
+      -- dart = {'dartanalyzer'},
       -- lua = {"selene"},
       -- ['js','jsx', 'ts', 'tsx'] = { 'eslint_d'},
       -- php = { "psalm" },
@@ -28,41 +28,12 @@ return {
     -- or add custom linters.
     -- @type table<string,table>
     linters = {
-      psalm = {
-        command = require("conform.util").find_executable({
-          vim.fn.stdpath("data") .. "/mason/bin/psalm",
-          "vendor/bin/psalm",
-        }, "psalm"),
-      },
-      dartanalyzer = {
-        cmd = 'dart',  -- Command to run
-        stdin = false,
-        args = {'analyze', '--format'},  -- Arguments to pass
-        stream = 'stdout',
-        ignore_exitcode = true,
-        parser = function(output, bufnr)
-          local diagnostics = {}
-          local lines = vim.split(output, '\n')
-
-          for _, line in ipairs(lines) do
-            local _, _, filename, line, col, severity, code, message = string.find(line, "^[^:]+:([^:]+):(%d+):(%d+): (%a+)%[%w+%]: (.*)$")
-            if filename and line and col and severity and message then
-              table.insert(diagnostics, {
-                bufnr = bufnr,
-                lnum = tonumber(line) - 1,
-                col = tonumber(col) - 1,
-                severity = vim.lsp.protocol.DiagnosticSeverity[severity:upper()],
-                source = 'dartanalyzer',
-                message = message,
-                code = code,
-              })
-            end
-          end
-
-          return diagnostics
-        end
-      }
-      --
+      -- psalm = {
+      --   command = require("conform.util").find_executable({
+      --     vim.fn.stdpath("data") .. "/mason/bin/psalm",
+      --     "vendor/bin/psalm",
+      --   }, "psalm"),
+      -- },
       -- }
       -- -- Example of using selene only when a selene.toml file is present
       -- selene = {

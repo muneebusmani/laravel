@@ -13,14 +13,14 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "plugins.generic.extras" },
     -- import any extras modules here
+    -- { import = "~/LazyVim/lua/lazyvim/plugins/extras/lang/dart"},
 
     -- import/override with your plugins
-    { import = "plugins.generic.extras" },
     { import = "plugins" },
     { import = "plugins.generic" },
   },
   defaults = {
-    lazy = true,
+    lazy = false,
     version = false,
   },
   install = { colorscheme = { "catppuccin" } },
